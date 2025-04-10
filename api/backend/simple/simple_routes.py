@@ -30,7 +30,7 @@ def get_playlist_data():
     return response
 
 # ------------------------------------------------------------
-@simple_routes.route('/niceMesage', methods = ['GET'])
+@simple_routes.route('/niceMessage', methods = ['GET'])
 def affirmation():
     message = '''
     <H1>Think about it...</H1>
@@ -44,5 +44,12 @@ def affirmation():
 # ------------------------------------------------------------
 # Demonstrates how to redirect from one route to another. 
 @simple_routes.route('/message')
-def mesage():
+def message():
     return redirect(url_for(affirmation))
+
+@simple_routes.route('/data')
+def get_data():
+    data = {"a":{"b": "123", "c": "What's"}, "z": {"b": "456", "c": "Up"}}
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
