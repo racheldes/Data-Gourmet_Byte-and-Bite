@@ -31,9 +31,10 @@ CREATE TABLE IF NOT EXISTS Recipes (
     recipeUserID int,
     CONSTRAINT fk_recipe_user
         FOREIGN KEY (recipeUserID) REFERENCES Users (userID)
-            ON UPDATE cascade ON DELETE restrict
+            ON UPDATE cascade ON DELETE cascade
 
 );
+
 
 -- create commentReviews table
 DROP TABLE IF EXISTS Reviews;
@@ -63,10 +64,10 @@ CREATE TABLE IF NOT EXISTS tagsPosts (
      PRIMARY KEY (tagID, recipeID),
     CONSTRAINT fk_3
         FOREIGN KEY (tagID) REFERENCES Tags (tagID)
-            ON UPDATE cascade ON DELETE restrict,
+            ON UPDATE cascade ON DELETE cascade,
     CONSTRAINT fk_4
         FOREIGN KEY (recipeID) REFERENCES Recipes (recipeID)
-            ON UPDATE cascade ON DELETE restrict
+            ON UPDATE cascade ON DELETE cascade
 );
 
 -- create meal plan table
@@ -114,6 +115,7 @@ CREATE TABLE IF NOT EXISTS MealPlanInfo_goals (
                    ON UPDATE CASCADE
 );
 
+
 -- create recipe meal plan info
 DROP TABLE IF EXISTS Recipe_MealPlanInfo;
 CREATE TABLE IF NOT EXISTS Recipe_MealPlanInfo (
@@ -121,10 +123,10 @@ CREATE TABLE IF NOT EXISTS Recipe_MealPlanInfo (
    recipeID INT NOT NULL,
    PRIMARY KEY (mealPlanInfoId, recipeID),
    FOREIGN KEY (mealPlanInfoId) REFERENCES MealPlanInfo(mealPlanInfoID)
-               ON DELETE RESTRICT
+               ON DELETE CASCADE
                ON UPDATE CASCADE,
    FOREIGN KEY (recipeID) REFERENCES Recipes(recipeID)
-       ON DELETE RESTRICT
+       ON DELETE CASCADE
        ON UPDATE CASCADE
 );
 
@@ -181,7 +183,7 @@ CREATE TABLE IF NOT EXISTS ContentModeration (
    modUserID INT,
  CONSTRAINT
      fk_content_mod_post FOREIGN KEY (modRecipeID) REFERENCES Recipes (recipeID)
-       ON UPDATE CASCADE ON DELETE RESTRICT,
+       ON UPDATE CASCADE ON DELETE CASCADE,
    CONSTRAINT
        fk_content_mod_user FOREIGN KEY (modUserID) REFERENCES Users (Userid)
        ON UPDATE CASCADE ON DELETE RESTRICT
@@ -197,7 +199,7 @@ CREATE TABLE IF NOT EXISTS AppUpdate (
   CONSTRAINT fk_app_update_user FOREIGN KEY (appUserID) REFERENCES Users (Userid)
 );
 
-# create report manangement table
+-- create report manangement table
 DROP TABLE IF EXISTS ReportManagement;
 CREATE TABLE IF NOT EXISTS ReportManagement (
    reportID INT AUTO_INCREMENT PRIMARY KEY,
@@ -302,29 +304,333 @@ INSERT INTO ReportManagement (dateReported, action, status, reportUserID) VALUES
 ('2025-03-31 11:30:00', 'Reviewed and dismissed', 'Closed', 2),
 ('2025-03-30 16:00:00', 'User issued a warning', 'Resolved', 1);
 
--- meal plan
-INSERT INTO MealPlan (addDate, allergens, userID)
-VALUES ('2025-03-31 11:30:00', NULL, 1),
-       ('2025-03-30 16:00:00', 'Peanuts', 2);
 
 
--- mealplan_goals
-INSERT INTO MealPlan_goals (mealPlanId, goals)
-VALUES (1, 'high protein'),
-       (2, 'low carb');
+SELECT *
+FROM Recipes;
 
 
--- mealplaninfo
-INSERT INTO MealPlanInfo (mealPlanInfoID, recipeID, allergens)
-VALUES (1, 1, 'cherries'),
-       (2, 2, 'peanuts');
+-- insert 30 sample meal plans
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (1, '2025-02-17 18:21:31', 'Tree nuts', 22);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (2, '2024-10-31 18:21:31', null, 14);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (3, '2025-02-18 14:33:13', 'Peanuts', 24);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (4, '2024-12-06 08:39:02', 'Gluten', 2);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (5, '2024-12-15 20:58:50', null, 24);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (6, '2024-12-11 21:02:26', null, 19);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (7, '2024-12-08 16:27:37', null, 8);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (8, '2024-04-12 04:17:26', 'Wheat', 22);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (9, '2024-09-12 14:20:29', null, 21);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (10, '2024-05-24 13:11:14', 'Wheat', 9);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (11, '2024-05-24 23:17:23', null, 28);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (12, '2025-02-08 21:07:55', 'Gluten', 21);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (13, '2025-03-13 14:26:41', 'Tree nuts', 7);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (14, '2024-06-14 20:22:07', null, 14);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (15, '2024-09-30 21:33:41', 'Wheat', 10);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (16, '2025-03-05 17:00:32', 'Fish', 22);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (17, '2024-10-05 23:35:13', 'Fish', 24);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (18, '2024-07-19 05:17:56', null, 30);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (19, '2024-08-29 08:36:19', null, 21);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (20, '2024-11-05 16:41:05', null, 20);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (21, '2024-08-12 00:02:38', 'Gluten', 14);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (22, '2024-10-10 04:47:13', null, 28);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (23, '2025-01-10 06:18:03', 'Gluten', 9);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (24, '2024-11-28 21:05:38', 'Wheat', 26);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (25, '2024-08-31 13:47:49', 'Soy', 16);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (26, '2024-04-30 03:36:29', 'Sesame', 30);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (27, '2024-09-28 14:30:11', null, 27);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (28, '2025-02-21 18:17:16', null, 19);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (29, '2024-04-16 06:15:59', null, 4);
+insert into MealPlan (mealPlanId, addDate, allergens, userID) values (30, '2025-04-04 10:20:56', null, 15);
 
--- recipe_mealplaninfo
-INSERT INTO Recipe_MealPlanInfo
-VALUES (1, 2),
-       (2,1);
 
--- mealplan_info goals
-INSERT INTO MealPlanInfo_goals
-VALUES (1, 'low calorie'),
-       (2, 'variety');
+-- insert 30 sample meal plan infos
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (1, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (2, 'Gluten', 18);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (3, 'Tree nuts', 12);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (4, 'Peanuts', 5);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (5, null, 22);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (6, null, 29);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (7, 'Soy', 27);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (8, null, 17);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (9, 'Fish', 26);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (10, null, 5);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (11, null, 17);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (12, 'Soy', 1);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (13, null, 26);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (14, null, 2);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (15, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (16, null, 23);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (17, null, 21);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (18, null, 24);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (19, null, 15);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (20, null, 8);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (21, 'Milk', 1);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (22, null, 7);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (23, null, 30);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (24, 'Peanuts', 14);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (25, 'Milk', 20);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (26, null, 20);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (27, 'Peanuts', 14);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (28, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (29, null, 3);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (30, 'Fish', 11);
+
+SELECT r.ingredients
+        FROM Recipes r
+        WHERE r.rating > 7;
+
+
+-- insert 125 meal plan infos goals  -----
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'vegan');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'quick and easy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (7, 'quick and easy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (23, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'carb-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (14, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (2, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'carb-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (14, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'balanced');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (7, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (11, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (11, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (18, 'carb-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (20, 'vegan');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (26, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (24, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (6, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (2, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (3, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'balanced');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (11, 'carb-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (16, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'high calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (20, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (22, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (24, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'balanced');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (2, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (24, 'vegan');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (16, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (23, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (14, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (28, 'anti-inflammatory');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (26, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (12, 'balanced');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (20, 'carb-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (28, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (10, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (3, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (7, 'meal prep friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (10, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (20, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (24, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (19, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'vegan');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (6, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (11, 'high calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (6, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (26, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (2, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (28, 'high calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'quick and easy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'high calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (21, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (28, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (12, 'fiber rich');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (1, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (16, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (25, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (1, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (30, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (24, 'fiber rich');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'fiber rich');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (17, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (10, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (4, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'vegetarian');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (22, 'budget friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (26, 'heart healthy');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (23, 'high calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (12, 'fat-free');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (22, 'high protein');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'low calorie');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (11, 'variety');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (10, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (17, 'fiber rich');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (22, 'keto');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (26, 'kid friendly');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (18, 'balanced');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'low sodium');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'fiber rich');
+insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'fat-free');
+
+-- insert 125 sample recipe_meal plan info
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (25, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 8);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (19, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 15);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (29, 17);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (18, 22);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (22, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (2, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 9);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 7);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 28);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (22, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 14);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (2, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (7, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 15);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (10, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 5);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (14, 16);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (21, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (22, 23);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (19, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 11);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (19, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (24, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (9, 10);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (29, 12);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (21, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 28);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (27, 30);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 15);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (25, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (7, 14);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 14);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (18, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (28, 29);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (10, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 2);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (19, 9);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 16);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (2, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 29);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 30);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (6, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (28, 2);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 11);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 16);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (27, 16);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 29);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (29, 9);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (21, 7);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (3, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (16, 12);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 24);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (28, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (14, 5);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (2, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (29, 11);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (25, 8);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 16);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (21, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (18, 11);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (24, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (16, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 29);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (27, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 18);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (10, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (27, 2);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 12);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 5);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (16, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 5);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (14, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (26, 23);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (1, 3);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (16, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (25, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (3, 8);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (12, 12);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 10);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 12);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (18, 6);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (29, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 27);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (2, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (8, 7);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (24, 14);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (6, 25);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (24, 24);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (3, 1);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (14, 2);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (16, 18);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 8);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 13);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (26, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 19);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (28, 19);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 7);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (23, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (30, 4);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (13, 26);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (19, 15);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (4, 21);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (26, 23);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (24, 24);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 20);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (8, 17);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 24);
+insert into Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 9);
+

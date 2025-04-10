@@ -8,6 +8,8 @@ from backend.nutritionist.nutritionist_routes import nutritionist
 from backend.investorReport.inverstorReport_routes import investorReport
 from backend.reviews.reviews_route import reviews
 from backend.recipes.recipes_route import recipes
+from backend.users.user_routes import users
+from backend.data_analyst.data_analyst_routes import data_analyst
 
 import os
 from dotenv import load_dotenv
@@ -52,6 +54,8 @@ def create_app():
     app.register_blueprint(reviews, url_prefix='/r')
     app.register_blueprint(recipes, url_prefix='p')
     # p for post becasue r for review is already used
+    app.register_blueprint(users, url_prefix='/u')
+    app.register_blueprint(data_analyst, url_prefix='/d')
     # Don't forget to return the app object
     return app
 
