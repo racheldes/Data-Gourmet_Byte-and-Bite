@@ -17,9 +17,9 @@ st.write('### What would you like to do today?')
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_Prediction.py')
+  st.switch_page('pages/11_Prediction_page.py')
 
-if st.button('View the Simple API Demo', 
+if st.button('Show the Simple API Demo', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/12_API_Test.py')
