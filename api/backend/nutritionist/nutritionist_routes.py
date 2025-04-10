@@ -14,6 +14,7 @@ from backend.ml_models.model01 import predict
 
 nutritionist = Blueprint('nutritionist', __name__)
 
+# this route is just to practice, not for actual use
 ### get all nutritionists from the system
 @nutritionist.route('/nutritionist', methods=['GET'])
 def get_all_nutritionist():
@@ -34,11 +35,9 @@ def get_all_nutritionist():
 @nutritionist.route('/highRecipeIngredients', methods=['GET'])
 def get_high_rated_ingredients():
     cursor = db.get_db().cursor()
-    cursor.execute( '''SELECT r1.ingredients
-                        FROM Recipes r1
-                        JOIN Users u1 ON r1.recipeUserID = u1.userID
-                        JOIN Reviews r2 ON u1.userID = r2.reviewUserID
-                        WHERE r1.rating > 7;
+    cursor.execute( '''SELECT r.ingredients
+                        FROM Recipes r
+                        WHERE r.rating > 7;
     ''')
 
     theData = cursor.fetchall()
@@ -80,9 +79,11 @@ def add_new_review():
     response.status_code = 200
     return response
 
+
 ### update the rating of a recipe to better reflect its healthiness
-@nutritionist.route('/recipe/<recipeID>/<rating>', methods = ['PUT'])
+@nutritionist.route('/editRecipe/<int:recipeID>/<int:rating>', methods = ['PUT'])
 def update_recipe_rating(recipeID, rating): 
+
     query = '''UPDATE Recipes
 	            SET rating = %s
 	            WHERE recipeID = %s;'''
