@@ -52,7 +52,7 @@ def create_app():
     app.register_blueprint(nutritionist, url_prefix='/n')
     app.register_blueprint(investorReport, url_prefix='/i')
     app.register_blueprint(reviews, url_prefix='/r')
-    app.register_blueprint(recipes, url_prefix='/p2')
+    app.register_blueprint(recipes, url_prefix='/p')
     # p for post becasue r for review is already used
     app.register_blueprint(users, url_prefix='/u')
     app.register_blueprint(data_analyst, url_prefix='/d')
