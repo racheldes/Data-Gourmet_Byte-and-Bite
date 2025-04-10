@@ -40,7 +40,7 @@ def get_all_user_info():
 
 
 # Create an overview of users data
-@data_analyst.route('/createUserInfo', methods=['POST'])
+@data_analyst.route('/userInfo/<userinfoID>', methods=['POST'])
 def add_user_info():
     
     # In a POST request, there is a 
