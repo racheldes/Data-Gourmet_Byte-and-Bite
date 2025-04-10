@@ -6,6 +6,7 @@ from backend.products.products_routes import products
 from backend.simple.simple_routes import simple_routes
 from backend.nutritionist.nutritionist_routes import nutritionist
 from backend.users.user_routes import users
+from backend.data_analyst.data_analyst_routes import data_analyst
 
 import os
 from dotenv import load_dotenv
@@ -47,6 +48,7 @@ def create_app():
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(nutritionist, url_prefix='/n')
     app.register_blueprint(users, url_prefix='/u')
+    app.register_blueprint(data_analyst, url_prefix='/d')
     # Don't forget to return the app object
     return app
 
