@@ -9,6 +9,8 @@ st.set_page_config(layout = 'wide')
 # Show appropriate sidebar links for the role of the currently logged in user
 SideBarLinks()
 
+role = st.session_state.get('role', '')
+
 if role == 'Nutritionist':
 st.title(f"Welcome Nutritionist, {st.session_state['first_name']}.")
 st.write('')
