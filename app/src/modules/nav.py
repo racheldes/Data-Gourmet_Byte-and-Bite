@@ -31,20 +31,20 @@ def MapDemoNav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
 
-## ------------------------ Examples for Role of usaid_worker ------------------------
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
+## ------------------------ Examples for Role of nutritionist ------------------------
+def viewIngredientsNav():
+    st.sidebar.page_link("pages/12_View_Ingredients.py", label="View the ingredients", icon="🥑")
 
 
-def PredictionNav():
+def ManageRecipesNav():
     st.sidebar.page_link(
-        "pages/11_Prediction_page.py", label="Regression Prediction", icon="📈"
+        "pages/11_Manage_Recipes.py", label="Create, Delete, and edit recipes", icon="🥘"
     )
 
 
-def ClassificationNav():
+def WriteReviewNav():
     st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
+        "pages/13_Write_Review.py", label="Write a Review", icon="✏️"
     )
 
 
@@ -84,10 +84,10 @@ def SideBarLinks(show_home=False):
             MapDemoNav()
 
         # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "usaid_worker":
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
+        if st.session_state["role"] == "nutritionist":
+            ManageRecipesNav()
+            viewIngredientsNav()
+            WriteReviewNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
