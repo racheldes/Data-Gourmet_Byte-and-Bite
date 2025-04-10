@@ -99,7 +99,7 @@ def update_mealPlan():
 
 # ------------------------------------------------------------
 # Delete a mealPlan by a specific id
-@users.route('/mealPlan/<int:mealPlanId>', methods=['DELETE'])
+@users.route('/mealPlan/<mealPlanId>', methods=['DELETE'])
 def delete_mealPlan(mealPlanId):
     current_app.logger.info(f'DELETE /mealPlan/{mealPlanId} route')
 
