@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS ByteBite;
 CREATE DATABASE IF NOT EXISTS ByteBite;
 
@@ -306,74 +307,78 @@ INSERT INTO ReportManagement (dateReported, action, status, reportUserID) VALUES
 
 
 
+SELECT *
+FROM Recipes;
+
+
 -- insert 30 sample meal plans
 insert into MealPlan (addDate, allergens, userID) values ('2025-02-17 18:21:31', 'Tree nuts', 22);
-insert into MealPlan (addDate, allergens, userID) values (2, '2024-10-31 18:21:31', null, 14);
-insert into MealPlan (addDate, allergens, userID) values (3, '2025-02-18 14:33:13', 'Peanuts', 24);
-insert into MealPlan (addDate, allergens, userID) values (4, '2024-12-06 08:39:02', 'Gluten', 2);
-insert into MealPlan (addDate, allergens, userID) values (5, '2024-12-15 20:58:50', null, 24);
-insert into MealPlan (addDate, allergens, userID) values (6, '2024-12-11 21:02:26', null, 19);
-insert into MealPlan (addDate, allergens, userID) values (7, '2024-12-08 16:27:37', null, 8);
-insert into MealPlan (addDate, allergens, userID) values (8, '2024-04-12 04:17:26', 'Wheat', 22);
-insert into MealPlan (addDate, allergens, userID) values (9, '2024-09-12 14:20:29', null, 21);
-insert into MealPlan (addDate, allergens, userID) values (10, '2024-05-24 13:11:14', 'Wheat', 9);
-insert into MealPlan (addDate, allergens, userID) values (11, '2024-05-24 23:17:23', null, 28);
-insert into MealPlan (addDate, allergens, userID) values (12, '2025-02-08 21:07:55', 'Gluten', 21);
-insert into MealPlan (addDate, allergens, userID) values (13, '2025-03-13 14:26:41', 'Tree nuts', 7);
-insert into MealPlan (addDate, allergens, userID) values (14, '2024-06-14 20:22:07', null, 14);
-insert into MealPlan (addDate, allergens, userID) values (15, '2024-09-30 21:33:41', 'Wheat', 10);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (16, '2025-03-05 17:00:32', 'Fish', 22);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (17, '2024-10-05 23:35:13', 'Fish', 24);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (18, '2024-07-19 05:17:56', null, 30);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (19, '2024-08-29 08:36:19', null, 21);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (20, '2024-11-05 16:41:05', null, 20);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (21, '2024-08-12 00:02:38', 'Gluten', 14);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (22, '2024-10-10 04:47:13', null, 28);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (23, '2025-01-10 06:18:03', 'Gluten', 9);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (24, '2024-11-28 21:05:38', 'Wheat', 26);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (25, '2024-08-31 13:47:49', 'Soy', 16);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (26, '2024-04-30 03:36:29', 'Sesame', 30);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (27, '2024-09-28 14:30:11', null, 27);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (28, '2025-02-21 18:17:16', null, 19);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (29, '2024-04-16 06:15:59', null, 4);
-insert into MealPlan (mealPlanId, addDate, allergens, userID) values (30, '2025-04-04 10:20:56', null, 15);
-
+insert into MealPlan (addDate, allergens, userID) values ('2024-10-31 18:21:31', null, 14);
+insert into MealPlan (addDate, allergens, userID) values ('2025-02-18 14:33:13', 'Peanuts', 24);
+insert into MealPlan (addDate, allergens, userID) values ('2024-12-06 08:39:02', 'Gluten', 2);
+insert into MealPlan (addDate, allergens, userID) values ('2024-12-15 20:58:50', null, 24);
+insert into MealPlan (addDate, allergens, userID) values ('2024-12-11 21:02:26', null, 19);
+insert into MealPlan (addDate, allergens, userID) values ('2024-12-08 16:27:37', null, 8);
+insert into MealPlan (addDate, allergens, userID) values ('2024-04-12 04:17:26', 'Wheat', 22);
+insert into MealPlan (addDate, allergens, userID) values ('2024-09-12 14:20:29', null, 21);
+insert into MealPlan (addDate, allergens, userID) values ('2024-05-24 13:11:14', 'Wheat', 9);
+insert into MealPlan (addDate, allergens, userID) values ('2024-05-24 23:17:23', null, 28);
+insert into MealPlan (addDate, allergens, userID) values ('2025-02-08 21:07:55', 'Gluten', 21);
+insert into MealPlan (addDate, allergens, userID) values ('2025-03-13 14:26:41', 'Tree nuts', 7);
+insert into MealPlan (addDate, allergens, userID) values ('2024-06-14 20:22:07', null, 14);
+insert into MealPlan (addDate, allergens, userID) values ('2024-09-30 21:33:41', 'Wheat', 10);
+insert into MealPlan (addDate, allergens, userID) values ('2025-03-05 17:00:32', 'Fish', 22);
+insert into MealPlan (addDate, allergens, userID) values ('2024-10-05 23:35:13', 'Fish', 24);
+insert into MealPlan (addDate, allergens, userID) values ('2024-07-19 05:17:56', null, 30);
+insert into MealPlan (addDate, allergens, userID) values ('2024-08-29 08:36:19', null, 21);
+insert into MealPlan (addDate, allergens, userID) values ('2024-11-05 16:41:05', null, 20);
+insert into MealPlan (addDate, allergens, userID) values ('2024-08-12 00:02:38', 'Gluten', 14);
+insert into MealPlan (addDate, allergens, userID) values ('2024-10-10 04:47:13', null, 28);
+insert into MealPlan (addDate, allergens, userID) values ('2025-01-10 06:18:03', 'Gluten', 9);
+insert into MealPlan (addDate, allergens, userID) values ('2024-11-28 21:05:38', 'Wheat', 26);
+insert into MealPlan (addDate, allergens, userID) values ('2024-08-31 13:47:49', 'Soy', 16);
+insert into MealPlan (addDate, allergens, userID) values ('2024-04-30 03:36:29', 'Sesame', 30);
+insert into MealPlan (addDate, allergens, userID) values ('2024-09-28 14:30:11', null, 27);
+insert into MealPlan (addDate, allergens, userID) values ('2025-02-21 18:17:16', null, 19);
+insert into MealPlan (addDate, allergens, userID) values ('2024-04-16 06:15:59', null, 4);
+insert into MealPlan (addDate, allergens, userID) values ('2025-04-04 10:20:56', null, 15);
 
 -- insert 30 sample meal plan infos
-insert into MealPlanInfo (allergens, recipeID) values (null, 19);
-insert into MealPlanInfo (allergens, recipeID) values ('Gluten', 18);
-insert into MealPlanInfo (allergens, recipeID) values ('Tree nuts', 12);
-insert into MealPlanInfo (allergens, recipeID) values ('Peanuts', 5);
-insert into MealPlanInfo (allergens, recipeID) values (null, 22);
-insert into MealPlanInfo (allergens, recipeID) values (null, 29);
-insert into MealPlanInfo (allergens, recipeID) values ('Soy', 27);
-insert into MealPlanInfo (allergens, recipeID) values (null, 17);
-insert into MealPlanInfo (allergens, recipeID) values ('Fish', 26);
-insert into MealPlanInfo (allergens, recipeID) values (null, 5);
-insert into MealPlanInfo (allergens, recipeID) values (null, 17);
-insert into MealPlanInfo (allergens, recipeID) values ('Soy', 1);
-insert into MealPlanInfo (allergens, recipeID) values (null, 26);
-insert into MealPlanInfo (allergens, recipeID) values (null, 2);
-insert into MealPlanInfo (allergens, recipeID) values (null, 19);
-insert into MealPlanInfo (allergens, recipeID) values (null, 23);
-insert into MealPlanInfo (allergens, recipeID) values (null, 21);
-insert into MealPlanInfo (allergens, recipeID) values (null, 24);
-insert into MealPlanInfo (allergens, recipeID) values (null, 15);
-insert into MealPlanInfo (allergens, recipeID) values (null, 8);
-insert into MealPlanInfo (allergens, recipeID) values ('Milk', 1);
-insert into MealPlanInfo (allergens, recipeID) values (null, 7);
-insert into MealPlanInfo (allergens, recipeID) values (null, 30);
-insert into MealPlanInfo (allergens, recipeID) values ('Peanuts', 14);
-insert into MealPlanInfo (allergens, recipeID) values ('Milk', 20);
-insert into MealPlanInfo (allergens, recipeID) values (null, 20);
-insert into MealPlanInfo (allergens, recipeID) values ('Peanuts', 14);
-insert into MealPlanInfo (allergens, recipeID) values (null, 19);
-insert into MealPlanInfo (allergens, recipeID) values (null, 3);
-insert into MealPlanInfo (allergens, recipeID) values ('Fish', 11);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (1, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (2, 'Gluten', 18);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (3, 'Tree nuts', 12);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (4, 'Peanuts', 5);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (5, null, 22);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (6, null, 29);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (7, 'Soy', 27);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (8, null, 17);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (9, 'Fish', 26);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (10, null, 5);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (11, null, 17);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (12, 'Soy', 1);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (13, null, 26);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (14, null, 2);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (15, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (16, null, 23);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (17, null, 21);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (18, null, 24);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (19, null, 15);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (20, null, 8);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (21, 'Milk', 1);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (22, null, 7);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (23, null, 30);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (24, 'Peanuts', 14);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (25, 'Milk', 20);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (26, null, 20);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (27, 'Peanuts', 14);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (28, null, 19);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (29, null, 3);
+insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (30, 'Fish', 11);
 
+SELECT r.ingredients
+        FROM Recipes r
+        WHERE r.rating > 7;
 
-SELECT *
-FROM Reviews;
 
 -- insert 125 meal plan infos goals  -----
 insert into MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'fat-free');
