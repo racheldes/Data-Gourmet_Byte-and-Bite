@@ -41,12 +41,32 @@ def ManageRecipesNav():
         "pages/11_Manage_Recipes.py", label="Create, Delete, and edit recipes", icon="🥘"
     )
 
+def NewUserInfo():
+    st.sidebar.page_link("pages/15_New_UserInfo.py", label="Creates a New UserInfo Report", icon="📈")
 
 def WriteReviewNav():
     st.sidebar.page_link(
         "pages/13_Write_Review.py", label="Write a Review", icon="✏️"
     )
 
+
+## ------------------------ Examples for Role of data_anaylst ------------------------
+def TagViewerNav():
+    st.sidebar.page_link("pages/31_Tag_Viewer.py", label="View All Tags", icon="🏷️")
+
+
+def UserInfoNav():
+    st.sidebar.page_link(
+        "pages/32_UserInfo.py", label="User Info Reports", icon="📋"
+    )
+
+def UserInfoCreatorNav():
+    st.sidebar.page_link("pages/33_Add_UserInfo.py", label="Creates a New UserInfo Report", icon="📈")
+
+def ClassificationNav():
+    st.sidebar.page_link(
+        "pages/34_Delete_Demographics.py", label="Manage Demographics", icon="🗑️"
+    )
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
@@ -104,6 +124,13 @@ def SideBarLinks(show_home=False):
             ManageRecipesNav()
             viewIngredientsNav()
             WriteReviewNav()
+
+            # If the user role is a data analyst, show the different data analysis tools
+            if st.session_state["role"] == "data_analyst":
+                TagViewerNav()
+                UserInfoNav()
+                UserInfoCreatorNav()
+                DemographicNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
