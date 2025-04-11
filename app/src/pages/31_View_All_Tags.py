@@ -11,8 +11,6 @@ SideBarLinks()
 st.write("## Access all the tags used")
 
 
-
-
 tags = requests.get('https://api:4000/d/tags').json()
 
 
