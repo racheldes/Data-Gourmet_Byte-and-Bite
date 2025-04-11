@@ -58,18 +58,18 @@ def AdminPageNav():
 ## ------------------------ Pages for a User ------------------------
 
 def UserPageNav():
-    st.sidebar.page_link("pages/41_Post_Recipe.py", label="Post A Recipe", icon="🛜")
+    st.sidebar.page_link("pages/41_Post_Recipe.py", label="Post A Recipe", icon="🍝")
 
 
 def UserSearchNav():
     st.sidebar.page_link(
-        "pages/42_Search_Recipe.py", label="Search For Recipes", icon="📈"
+        "pages/42_Search_Recipe.py", label="Search For Recipes", icon="🍽️"
     )
 
 
 def UserMealPlanNav():
     st.sidebar.page_link(
-        "pages/43_Update_MealPlan.py", label="Update Meal Plan", icon="🌺"
+        "pages/43_Update_MealPlan.py", label="Update Meal Plan", icon="📋"
     )
 
 # --------------------------------Links Function -----------------------------------------------
@@ -79,7 +79,7 @@ def SideBarLinks(show_home=False):
     """
 
     # add a logo to the sidebar always
-    st.sidebar.image("assets/logo.png", width=150)
+    st.sidebar.image("assets/bytebitelogo.png", width=150)
 
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:

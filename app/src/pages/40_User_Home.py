@@ -14,6 +14,11 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
+st.image('assets/bytebitelogo.png',caption=None, width=500, use_container_width=False, clamp=False,
+         channels="RGB", output_format="auto")
+
+
+## 3 buttons that support what the user can do
 if st.button('Post A Review', 
              type='primary',
              use_container_width=True):

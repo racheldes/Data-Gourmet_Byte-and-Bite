@@ -37,7 +37,7 @@ def get_recipe():
 
     cursor = db.get_db().cursor()
     cursor.execute('''SELECT r.recipeID, r.rating, r.ingredients, r.directions, r.allergens
-                    FROM Recipes r JOIN Users u ON r.recipeUserID = u.userID
+                    FROM Recipes r
     ''')
     
     theData = cursor.fetchall()
@@ -48,20 +48,25 @@ def get_recipe():
 
 # ------------------------------------------------------------
 # Make a review on a recipe
-@users.route('/add-review', methods=['POST'])
-def add_review():
+@users.route('/post-recipe', methods=['POST'])
+def add_recipe():
     the_data = request.json
     current_app.logger.info(the_data)
 
     # Extract variables from the request body
-    review_user_id = the_data['reviewUserID']
-    comment = the_data['comment']
+    recipe_id = the_data['recipeID']
+    username = the_data['username']
     rating = the_data['rating']
+    date = the_data['date']
+    ingredients = the_data['ingredients']
+    directions = the_data['directions']
+    allergens = the_data['allergens']
+    review_user_id = the_data['recipeUserID']
 
     # Construct the query
     query = f'''
-        INSERT INTO Recipes (recipeID, rating, ingredients)
-        VALUES ({review_user_id}, {comment}, '{rating}')
+        INSERT INTO Recipes (recipeID, username, rating, date, ingredients, directions, allergens, recipeUserID)
+        VALUES ({recipe_id}, {username}, {rating}, {date}, {ingredients}, {directions}, {allergens} '{review_user_id}')
     '''
 
     current_app.logger.info(query)
