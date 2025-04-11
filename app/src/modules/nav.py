@@ -55,6 +55,22 @@ def AdminPageNav():
         "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
     )
 
+## ------------------------ Pages for a User ------------------------
+
+def UserPageNav():
+    st.sidebar.page_link("pages/41_Post_Recipe.py", label="Post A Recipe", icon="🛜")
+
+
+def UserSearchNav():
+    st.sidebar.page_link(
+        "pages/42_Search_Recipe.py", label="Search For Recipes", icon="📈"
+    )
+
+
+def UserMealPlanNav():
+    st.sidebar.page_link(
+        "pages/43_Update_MealPlan.py", label="Update Meal Plan", icon="🌺"
+    )
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -92,6 +108,12 @@ def SideBarLinks(show_home=False):
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
             AdminPageNav()
+
+        if st.session_state["role"] == "user":
+            UserPageNav()
+            UserSearchNav()
+            UserMealPlanNav()
+
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
