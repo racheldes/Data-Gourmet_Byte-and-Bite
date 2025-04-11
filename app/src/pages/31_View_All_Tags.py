@@ -8,9 +8,9 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-
-st.write("# Accessing a REST API from Within Streamlit")
 st.write("## Access all the tags used")
+
+
 
 
 tags = requests.get('https://api:4000/d/tags').json()

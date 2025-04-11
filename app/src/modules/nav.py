@@ -48,6 +48,17 @@ def WriteReviewNav():
     )
 
 
+## ------------------------ Examples for Role of data_analyst ------------------------
+def ViewTagsNav():
+    st.sidebar.page_link("pages/31_View_All_Tags.py", label="View all tags", icon="🏷️")
+
+
+def ViewUserInfo():
+    st.sidebar.page_link(
+        "pages/32_View_UserInfo.py", label="View User Info Reports", icon="📋"
+    )
+
+
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
     st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
