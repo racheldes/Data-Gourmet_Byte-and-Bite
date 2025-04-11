@@ -344,40 +344,37 @@ insert into MealPlan (addDate, allergens, userID) values ('2024-04-16 06:15:59',
 insert into MealPlan (addDate, allergens, userID) values ('2025-04-04 10:20:56', null, 15);
 
 -- insert 30 sample meal plan infos
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (1, null, 19);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (2, 'Gluten', 18);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (3, 'Tree nuts', 12);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (4, 'Peanuts', 5);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (5, null, 22);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (6, null, 29);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (7, 'Soy', 27);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (8, null, 17);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (9, 'Fish', 26);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (10, null, 5);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (11, null, 17);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (12, 'Soy', 1);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (13, null, 26);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (14, null, 2);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (15, null, 19);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (16, null, 23);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (17, null, 21);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (18, null, 24);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (19, null, 15);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (20, null, 8);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (21, 'Milk', 1);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (22, null, 7);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (23, null, 30);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (24, 'Peanuts', 14);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (25, 'Milk', 20);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (26, null, 20);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (27, 'Peanuts', 14);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (28, null, 19);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (29, null, 3);
-insert into MealPlanInfo (mealPlanInfoID, allergens, recipeID) values (30, 'Fish', 11);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 19);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Gluten', 18);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Tree nuts', 12);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 5);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 22);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 29);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Soy', 27);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 17);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Fish', 26);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 5);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 17);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Soy', 1);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 26);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 2);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 19);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 23);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 21);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 24);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 15);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 8);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Milk', 1);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 7);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 30);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 14);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Milk', 20);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 20);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 14);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 19);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 3);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Fish', 11);
 
-SELECT r.ingredients
-        FROM Recipes r
-        WHERE r.rating > 7;
 
 
 -- insert 125 meal plan infos goals  -----
