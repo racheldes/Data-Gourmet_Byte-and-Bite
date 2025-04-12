@@ -10,7 +10,7 @@ SideBarLinks()
 
 st.write("## Access all the tags used across the platform:")
 
-tags = requests.get('https://api:4000/d/tags').json()
+tags = requests.get('http://api:4000/d/tags').json()
 
 
 try:
