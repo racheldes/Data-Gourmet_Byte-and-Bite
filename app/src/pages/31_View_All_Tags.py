@@ -15,5 +15,5 @@ tags = requests.get('https://api:4000/d/tags').json()
 
 try:
   st.dataframe(tags)
-expect:
+except:
   st.write("Could not connect to database to get tags!")
