@@ -31,9 +31,9 @@ with st.form("Insert the data for your report:"):
     if submitted:
         userInfo_lastLoggedOn = datetime.datetime.now().isoformat()
         user_data = {
-        "userInfo_mealPlanCount": userInfo_mealPlanCount,
+        "userInfo_mealPlanCount": int(userInfo_mealPlanCount),
         "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
-        "userInfo_commentCount": userInfo_commentCount,
+        "userInfo_commentCount": int(userInfo_commentCount),
         "userInfo_userID": int(userInfo_userID)
     }
         
