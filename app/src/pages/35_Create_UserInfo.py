@@ -7,47 +7,49 @@ import requests
 import datetime
 from io import StringIO
 
-# st.set_page_config(layout='wide')
+#st.set_page_config(layout = 'wide')
 SideBarLinks()
 
 st.write("""
 ## Create a User Info Report!
 """)
 
-with st.form("user_info_form"):
+with st.form("Insert the data for your report:"):
+
+   
     userInfo_mealPlanCount = st.number_input(
         "Enter the amount of meal plans this user has created",
         min_value=0,
         step=1,
         format="%d"
     )
-
     userInfo_commentCount = st.number_input(
         "Enter the number of comments this user has made",
         min_value=0,
         step=1,
         format="%d"
     )
-
     userInfo_userID = st.number_input(
         "Enter the user's ID",
-        min_value=40,
+        min_value=1,
+        max_value=40,
         step=1,
         format="%d"
     )
+
 
     submitted = st.form_submit_button("Submit")
 
     if submitted:
         userInfo_lastLoggedOn = datetime.datetime.now().isoformat()
         user_data = {
-            "userInfo_mealPlanCount": int(userInfo_mealPlanCount),
+            "userInfo_mealPlanCount": userInfo_mealPlanCount,
             "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
-            "userInfo_commentCount": int(userInfo_commentCount),
-            "userInfo_userID": int(userInfo_userID)
-        }
-
-        response = requests.post('http://api:4000/d/post-userInfo', json=user_data)
+            "userInfo_commentCount": userInfo_commentCount,
+            "userInfo_userID": userInfo_userID
+    }
+        
+        requests.post('http://api:4000/d/post-userInfo', json=data)  
 
         if response.status_code == 200:
             st.success("User Info Report Created Successfully!")
