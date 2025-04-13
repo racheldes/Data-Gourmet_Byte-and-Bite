@@ -41,11 +41,12 @@ with st.form("Insert the data for your report:"):
     if submitted:
         userInfo_lastLoggedOn = datetime.datetime.now().isoformat()
         user_data = {
-            "userInfo_mealPlanCount": userInfo_mealPlanCount,
+            "number_of_meal_plans": userInfo_mealPlanCount,  # Changed to match API's expected key
             "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
             "userInfo_commentCount": userInfo_commentCount,
             "userID": userInfo_userID
-        }
+}
+
 
         # Format the URL with the actual user ID
         url = f'http://api:4000/d/userInfo/{userInfo_userID}'
