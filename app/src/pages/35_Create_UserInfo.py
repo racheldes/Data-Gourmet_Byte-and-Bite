@@ -7,58 +7,51 @@ import datetime
 # Set up logger
 logger = logging.getLogger(__name__)
 
-# Set up Streamlit sidebar
+# Set up sidebar
 SideBarLinks()
 
-st.write("""
-## Create a User Info Report!
-""")
+st.write("""## Create a User Info Report!""")
 
 # Form for user input
 with st.form("Insert the data for your report:"):
-    userInfo_mealPlanCount = st.number_input(
+    mealPlanCount = st.number_input(
         "Enter the amount of meal plans this user has created",
-        min_value=0,
-        step=1,
-        format="%d"
+        min_value=0, step=1, format="%d"
     )
-    userInfo_commentCount = st.number_input(
+    commentCount = st.number_input(
         "Enter the number of comments this user has made",
-        min_value=0,
-        step=1,
-        format="%d"
+        min_value=0, step=1, format="%d"
     )
-    userInfo_userID = st.number_input(
+    userID = st.number_input(
         "Enter the user's ID",
-        min_value=1,
-        max_value=40,
-        step=1,
-        format="%d"
+        min_value=1, max_value=40, step=1, format="%d"
     )
 
     submitted = st.form_submit_button("Submit")
 
-
 if submitted:
-        userInfo_lastLoggedOn = datetime.datetime.now().isoformat() 
-        data = {}
-        data['number_of_meal_plans'] = userInfo_mealPlanCount
-        data['last_logged_on'] = userInfo_lastLoggedOn
-        data['number_of_comments'] = userInfo_commentCount
-        data['userID'] = userInfo_userID
-        st.write(data)
+    lastLoggedOn = datetime.datetime.now().isoformat()
 
-        url = f'http://api:4000/d/userInfo/{userInfo_userID}'
-        response = requests.post(url, json=user_data)
+    user_data = {
+        "number_of_meal_plans": mealPlanCount,
+        "last_logged_on": lastLoggedOn,
+        "number_of_comments": commentCount,
+        "userID": userID
+    }
 
-        if response.status_code == 200:
-            try:
-                the_data = response.json() 
-                if 'userID' not in the_data:
-                    st.error("Error: userID is missing in the response data.")
-                else:
-                    st.success("User Info Report Created Successfully!")
-            except Exception as e:
-                st.error(f"Error parsing response: {str(e)}")
-        else:
-            st.error(f"Failed to submit user info. Status code: {response.status_code}")
+    st.write(user_data)  # Debug print
+
+    url = f'http://api:4000/d/userInfo/{userID}'
+    response = requests.post(url, json=user_data)
+
+    if response.status_code == 200:
+        try:
+            the_data = response.json()
+            if 'userID' not in the_data:
+                st.error("Error: userID is missing in the response data.")
+            else:
+                st.success("User Info Report Created Successfully!")
+        except Exception as e:
+            st.error(f"Error parsing response: {str(e)}")
+    else:
+        st.error(f"Failed to submit user info. Status code: {response.status_code}")
