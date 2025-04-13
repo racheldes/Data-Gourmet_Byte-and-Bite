@@ -7,28 +7,29 @@ import requests
 import datetime
 from io import StringIO
 
-# st.set_page_config(layout = 'wide')
+# st.set_page_config(layout='wide')
 SideBarLinks()
 
 st.write("""
 ## Create a User Info Report!
 """)
 
-with st.form("Insert the data for your report:"):
-
+with st.form("user_info_form"):
     userInfo_mealPlanCount = st.number_input(
-    "Enter the amount of meal plans this user has created",
-    min_value=0,
-    step=1,
-    format="%d"
-)
-userInfo_commentCount = st.number_input(
-    "Enter the number of comments this user has made",
-    min_value=0,
-    step=1,
-    format="%d"
-)
-userInfo_userID = st.number_input(
+        "Enter the amount of meal plans this user has created",
+        min_value=0,
+        step=1,
+        format="%d"
+    )
+
+    userInfo_commentCount = st.number_input(
+        "Enter the number of comments this user has made",
+        min_value=0,
+        step=1,
+        format="%d"
+    )
+
+    userInfo_userID = st.number_input(
         "Enter the user's ID",
         min_value=1,
         max_value=40,
