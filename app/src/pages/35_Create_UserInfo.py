@@ -47,7 +47,7 @@ with st.form("Insert the data for your report:"):
         }
 
         # Use user_data instead of undefined 'data'
-        response = requests.post('http://api:4000/d/post-userInfo', json=user_data)
+        response = requests.post('http://api:4000/d//userInfo/<userinfoID>', json=user_data)
 
         if response.status_code == 200:
             st.success("User Info Report Created Successfully!")
