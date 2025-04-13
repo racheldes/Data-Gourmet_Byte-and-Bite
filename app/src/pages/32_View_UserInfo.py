@@ -18,5 +18,6 @@ st.write("## Access all the user info reports used")
 
 try:
   st.dataframe(user_info)
-expect:
+  
+except:
   st.write("Could not connect to database to get the User Info Reports!")
