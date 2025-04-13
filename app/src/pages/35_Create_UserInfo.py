@@ -38,21 +38,19 @@ with st.form("Insert the data for your report:"):
 
     submitted = st.form_submit_button("Submit")
 
-    if submitted:
-        userInfo_lastLoggedOn = datetime.datetime.now().isoformat()
-        user_data = {
-            "number_of_meal_plans": userInfo_mealPlanCount,
-            "last_logged_on": userInfo_lastLoggedOn,
-            "number_of_comments": userInfo_commentCount,
-            "userID": userInfo_userID
-}
 
+if submitted:
+        userInfo_lastLoggedOn = datetime.datetime.now().isoformat() 
+        data = {}
+        data['userInfo_mealPlanCount'] = userInfo_mealPlanCount
+        data['userInfo_lastLoggedOn'] = userInfo_lastLoggedOn
+        data['userInfo_commentCount'] = userInfo_commentCount
+        data['userInfo_userID'] = userInfo_userID
+        st.write(data)
 
-        # Format the URL with the actual user ID
         url = f'http://api:4000/d/userInfo/{userInfo_userID}'
         response = requests.post(url, json=user_data)
 
-        # Check if userID is present in the response (after the API call)
         if response.status_code == 200:
             try:
                 the_data = response.json() 
