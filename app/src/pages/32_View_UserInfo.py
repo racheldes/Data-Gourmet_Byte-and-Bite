@@ -13,7 +13,7 @@ st.write("# Accessing a REST API from Within Streamlit")
 st.write("## Access all the user info reports used")
 
 
- user_info = requests.get('https://api:4000/d/userInfo').json()
+ user_info = requests.get('http://api:4000/d/userInfo').json()
 
 
 try:
