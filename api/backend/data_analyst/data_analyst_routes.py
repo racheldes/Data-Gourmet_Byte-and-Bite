@@ -41,7 +41,7 @@ def get_all_user_info():
 
 # Create an overview of users data
 @data_analyst.route('/userInfo/<userinfoID>', methods=['POST'])
-def add_user_info():
+def add_user_info(userinfoID):
     
     # In a POST request, there is a 
     # collecting data from the request object 
