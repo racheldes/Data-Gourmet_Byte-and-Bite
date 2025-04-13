@@ -42,10 +42,10 @@ with st.form("Insert the data for your report:"):
 if submitted:
         userInfo_lastLoggedOn = datetime.datetime.now().isoformat() 
         data = {}
-        data['userInfo_mealPlanCount'] = userInfo_mealPlanCount
-        data['userInfo_lastLoggedOn'] = userInfo_lastLoggedOn
-        data['userInfo_commentCount'] = userInfo_commentCount
-        data['userInfo_userID'] = userInfo_userID
+        data['number_of_meal_plans'] = userInfo_mealPlanCount
+        data['last_logged_on'] = userInfo_lastLoggedOn
+        data['number_of_comments'] = userInfo_commentCount
+        data['userID'] = userInfo_userID
         st.write(data)
 
         url = f'http://api:4000/d/userInfo/{userInfo_userID}'
