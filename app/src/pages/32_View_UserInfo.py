@@ -11,10 +11,10 @@ SideBarLinks()
 st.write("## Access all the user info reports used")
 
 
- user_info = requests.get('http://api:4000/d/userInfo').json()
+ userInfo = requests.get('http://api:4000/d/userInfo').json()
 
 
 try:
-  st.dataframe(user_info)
+  st.dataframe(userInfo)
 except:
   st.write("Could not connect to database to get the User Info Reports!")
