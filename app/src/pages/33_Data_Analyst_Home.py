@@ -18,3 +18,8 @@ if st.button('View all the tags used on the platform',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/31_View_All_Tags.py')
+
+  if st.button('Manage User Info Reports', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/34_Manage_UserInfo.py')
