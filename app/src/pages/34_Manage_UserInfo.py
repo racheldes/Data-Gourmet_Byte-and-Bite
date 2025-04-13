@@ -16,3 +16,8 @@ if st.button('View all user info reports here!',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/32_View_UserInfo.py')
+
+  if st.button('Create a user info report here!', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/35_Create_UserInfo.py')
