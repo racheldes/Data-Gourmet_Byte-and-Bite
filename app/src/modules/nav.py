@@ -53,9 +53,9 @@ def ViewTagsNav():
     st.sidebar.page_link("pages/31_View_All_Tags.py", label="View all tags", icon="🏷️")
 
 
-def ViewUserInfo():
+def ManageUserInfoNav():
     st.sidebar.page_link(
-        "pages/32_View_UserInfo.py", label="View User Info Reports", icon="📋"
+        "pages/34_Manage_UserInfo.py", label="Manage the User Info Reports", icon="📋"
     )
 
 
@@ -124,6 +124,11 @@ def SideBarLinks(show_home=False):
             UserPageNav()
             UserSearchNav()
             UserMealPlanNav()
+
+        if st.session_state["role"] == "data_analyst":
+            ViewTagsNav()
+            ManageUserInfoNav()
+
 
 
     # Always show the About page at the bottom of the list of links
