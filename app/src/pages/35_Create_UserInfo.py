@@ -7,7 +7,7 @@ import requests
 import datetime
 from io import StringIO
 
-#st.set_page_config(layout = 'wide')
+# st.set_page_config(layout='wide')
 SideBarLinks()
 
 st.write("""
@@ -15,8 +15,6 @@ st.write("""
 """)
 
 with st.form("Insert the data for your report:"):
-
-   
     userInfo_mealPlanCount = st.number_input(
         "Enter the amount of meal plans this user has created",
         min_value=0,
@@ -37,7 +35,6 @@ with st.form("Insert the data for your report:"):
         format="%d"
     )
 
-
     submitted = st.form_submit_button("Submit")
 
     if submitted:
@@ -47,9 +44,10 @@ with st.form("Insert the data for your report:"):
             "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
             "userInfo_commentCount": userInfo_commentCount,
             "userInfo_userID": userInfo_userID
-    }
-        
-        requests.post('http://api:4000/d/post-userInfo', json=data)  
+        }
+
+        # Use user_data instead of undefined 'data'
+        response = requests.post('http://api:4000/d/post-userInfo', json=user_data)
 
         if response.status_code == 200:
             st.success("User Info Report Created Successfully!")
