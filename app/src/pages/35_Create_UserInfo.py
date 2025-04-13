@@ -43,12 +43,16 @@ with st.form("Insert the data for your report:"):
             "userInfo_mealPlanCount": userInfo_mealPlanCount,
             "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
             "userInfo_commentCount": userInfo_commentCount,
-            "userInfo_userID": userInfo_userID
+            "userID": userInfo_userID
         }
 
         # Format the URL with the actual user ID
         url = f'http://api:4000/d/userInfo/{userInfo_userID}'
         response = requests.post(url, json=user_data)
+
+        if 'userID' not in the_data:
+            return jsonify({"error": "userID is missing"}), 400
+        userID = the_data['userID']
 
         if response.status_code == 200:
             st.success("User Info Report Created Successfully!")
