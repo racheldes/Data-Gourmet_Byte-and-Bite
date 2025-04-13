@@ -16,9 +16,19 @@ st.write("""
 
 with st.form("Insert the data for your report:"):
 
-    userInfo_mealPlanCount = int(st.number_input("Enter the amount of meal plans this user has created"))
-    userInfo_commentCount = int(st.number_input("Enter the number of comments this user has made"))
-    userInfo_userID = st.number_input(
+    userInfo_mealPlanCount = st.number_input(
+    "Enter the amount of meal plans this user has created",
+    min_value=0,
+    step=1,
+    format="%d"
+)
+userInfo_commentCount = st.number_input(
+    "Enter the number of comments this user has made",
+    min_value=0,
+    step=1,
+    format="%d"
+)
+userInfo_userID = st.number_input(
         "Enter the user's ID",
         min_value=1,
         max_value=40,
