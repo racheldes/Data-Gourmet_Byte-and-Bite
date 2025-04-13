@@ -37,4 +37,9 @@ with st.form("Insert the data for your report:"):
         "userInfo_userID": int(userInfo_userID)
     }
         
-        requests.post('http://api:4000/d/post-userInfo', json=data)
+    response = requests.post('http://api:4000/d/post-userInfo', json=user_data)
+        
+        if response.status_code == 200:
+            st.success("User Info Report Created Successfully!")
+        else:
+            st.error(f"Failed to submit user info. Status code: {response.status_code}")
