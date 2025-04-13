@@ -20,7 +20,7 @@ with st.form("Change a Meal Plan Count"):
     data['userInfoID'] = userInfoID
     data['mealPlanCount'] = mealPlanCount
 
-    response = requests.put(f'/userInfo/<userinfoID>/<mealPlanCount>')
+    response = requests.put(f'http://api:4000/d/userInfo/<userinfoID>/<mealPlanCount>')
 
 
     if response.status_code == 200:

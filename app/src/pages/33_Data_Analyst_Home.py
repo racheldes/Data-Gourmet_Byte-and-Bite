@@ -23,3 +23,8 @@ if st.button('Manage User Info Reports',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/34_Manage_UserInfo.py')
+
+if st.button('Delete Demographic Report', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/37_Delete_Dem.py')

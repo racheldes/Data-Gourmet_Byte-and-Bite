@@ -58,6 +58,11 @@ def ManageUserInfoNav():
         "pages/34_Manage_UserInfo.py", label="Manage the User Info Reports", icon="📋"
     )
 
+def DemDeleterNav():
+    st.sidebar.page_link(
+        "pages/37_Delete_Dem.py", label="Delete a User Demographic Report", icon="👤"
+    )
+
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
@@ -128,6 +133,7 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "data_analyst":
             ViewTagsNav()
             ManageUserInfoNav()
+            DemDeleterNav()
 
 
 
