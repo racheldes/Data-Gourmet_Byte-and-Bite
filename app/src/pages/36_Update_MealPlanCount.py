@@ -8,6 +8,10 @@ import requests
 #st.set_page_config(layout = 'wide')
 SideBarLinks()
 
+st.write("""
+# Update a user's meal plan count!
+""")
+
 with st.form("Change a Meal Plan Count"):
   userInfoID = st.number_input("Enter the userInfoID to be updated", step=1)
   mealPlanCount = st.number_input(
