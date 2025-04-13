@@ -31,9 +31,9 @@ with st.form("user_info_form"):
 
     userInfo_userID = st.number_input(
         "Enter the user's ID",
-        min_value=1,
-        max_value=40,
-        step=1
+        min_value=40,
+        step=1,
+        format="%d"
     )
 
     submitted = st.form_submit_button("Submit")
