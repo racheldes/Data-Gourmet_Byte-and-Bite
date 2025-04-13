@@ -7,12 +7,10 @@ import datetime
 # Set up logger
 logger = logging.getLogger(__name__)
 
-# Set up sidebar
 SideBarLinks()
 
 st.write("""## Create a User Info Report!""")
 
-# Form for user input
 with st.form("Insert the data for your report:"):
     mealPlanCount = st.number_input(
         "Enter the amount of meal plans this user has created",
@@ -39,7 +37,7 @@ if submitted:
         "userID": userID
     }
 
-    st.write(user_data)  # Debug print
+    st.write(user_data) 
 
     url = f'http://api:4000/d/userInfo/{userID}'
     response = requests.post(url, json=user_data)

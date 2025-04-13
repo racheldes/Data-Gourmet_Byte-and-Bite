@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS Recipe_MealPlanInfo (
 -- create UserInfo table
 DROP TABLE IF EXISTS UserInfo;
 CREATE TABLE IF NOT EXISTS UserInfo (
-   userinfoID int NOT NULL,
+   userinfoID int NOT NULL AUTO_INCREMENT,
    userID int NOT NULL,
    mealPlanCount int NOT NULL,
    lastLoggedOn datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
