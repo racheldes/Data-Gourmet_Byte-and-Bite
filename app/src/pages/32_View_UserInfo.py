@@ -8,8 +8,6 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-
-st.write("# Accessing a REST API from Within Streamlit")
 st.write("## Access all the user info reports used")
 
 
@@ -18,6 +16,5 @@ st.write("## Access all the user info reports used")
 
 try:
   st.dataframe(user_info)
-  
 except:
   st.write("Could not connect to database to get the User Info Reports!")
