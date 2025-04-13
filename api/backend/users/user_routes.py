@@ -20,7 +20,8 @@ def get_all_reviews():
 
     cursor = db.get_db().cursor()
     cursor.execute('''SELECT r.reviewID, r.comment, r.rating
-                FROM Reviews r JOIN Users u ON r.reviewUserID = u.userID
+                FROM Reviews r
+                ORDER BY r.rating DESC
     ''')
     
     theData = cursor.fetchall()
@@ -88,15 +89,15 @@ def add_recipe():
 def update_mealPlan():
     current_app.logger.info('PUT /mealPLan route')
     mealPlan_info = request.json
-    mealPlan_id = mealPlan_info['mealPlanId']
+    user_id = mealPlan_info['userID']
     allergens = mealPlan_info['allergens']
 
     query = '''
     UPDATE MealPlan 
     SET allergens = %s 
-    WHERE mealPlanId = %s
+    WHERE userID = %s
     '''
-    data = (allergens, mealPlan_id)
+    data = (allergens, user_id)
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
     db.get_db().commit()

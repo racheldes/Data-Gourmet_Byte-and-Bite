@@ -11,24 +11,51 @@ import requests
 SideBarLinks()
 
 st.write("""
-## Edit the rating of a recipe to better reflect its true healthiness!
+## Edit your Meal Plan to better reflect your goals
 """)
-# put/update the recipe's rating 
+# update the saved meal plan allergies (will further develop later)
 with st.form("Change a Recipe Rating"):
-  recipeID = st.number_input("Enter the RecipeID to be updated", step=1)
-  recipe_rating = st.slider("Enter the new Rating", 0, 10, 5, step=1)
+  userID = st.number_input("Enter the userID of the meal plan to be updated", step=1)
+  allergens = st.text_input("Update your list of allergies")
 
   submitted = st.form_submit_button("Submit")
 
-  if recipeID and recipe_rating:
+  if userID and allergens:
     data = {}
-    data['recipeID'] = recipeID
-    data['recipe_rating'] = recipe_rating
+    data['userID'] = userID
+    data['allergens'] = allergens
 
-    response = requests.put(f'http://api:4000/n/editRecipe/{recipeID}/{recipe_rating}')
+    response = requests.put(f'http://api:4000/u/mealPlan/{userID}/{allergens}')
 
 
     if response.status_code == 200:
-      st.success("Yay recipe updated!")
+      st.success("Allergies updated!")
+      st.badge("Success", icon = ":material/check", color="green")
     else:
-      st.error("Recipe failed to update")
+      st.error("Allergies failed to update")
+      st.markdown(":orange-badge[⚠️ Needs review]")
+
+
+
+# delete the meal plan
+st.write("""
+## Delete a Meal Plan here!
+""")
+with st.form("Delete A Meal Plan"):
+    mealPlanID = st.number_input("Enter the ID number of the meal plan you wish to delete", step=1)
+    submitted = st.form_submit_button("Submit")
+
+    if submitted: 
+      if mealPlanID:
+        response = requests.delete(f'http://api:4000/u/mealPlan/{mealPlanID}')
+
+        if response.status_code == 200:
+          st.badge("Meal Plan deleted.", icon=":material/check", color="green")
+        else:
+          st.error('Recipe failed to delete')
+          st.markdown(":orange-badge[⚠️ Needs review]")
+        
+      else:
+        st.warning("Invalid Recipe ID for deletion")
+        st.markdown(":orange-badge[⚠️ Needs review]")
+
