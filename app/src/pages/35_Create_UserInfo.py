@@ -1,19 +1,20 @@
 import logging
-logger = logging.getLogger(__name__)
-
 import streamlit as st
 from modules.nav import SideBarLinks
 import requests
 import datetime
-from io import StringIO
 
-# st.set_page_config(layout='wide')
+# Set up logger
+logger = logging.getLogger(__name__)
+
+# Set up Streamlit sidebar
 SideBarLinks()
 
 st.write("""
 ## Create a User Info Report!
 """)
 
+# Form for user input
 with st.form("Insert the data for your report:"):
     userInfo_mealPlanCount = st.number_input(
         "Enter the amount of meal plans this user has created",
@@ -50,11 +51,15 @@ with st.form("Insert the data for your report:"):
         url = f'http://api:4000/d/userInfo/{userInfo_userID}'
         response = requests.post(url, json=user_data)
 
-        if 'userID' not in the_data:
-            return jsonify({"error": "userID is missing"}), 400
-        userID = the_data['userID']
-
+        # Check if userID is present in the response (after the API call)
         if response.status_code == 200:
-            st.success("User Info Report Created Successfully!")
+            try:
+                the_data = response.json()  # Parse the response data
+                if 'userID' not in the_data:
+                    st.error("Error: userID is missing in the response data.")
+                else:
+                    st.success("User Info Report Created Successfully!")
+            except Exception as e:
+                st.error(f"Error parsing response: {str(e)}")
         else:
             st.error(f"Failed to submit user info. Status code: {response.status_code}")
