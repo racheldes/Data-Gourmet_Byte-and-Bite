@@ -48,6 +48,22 @@ def WriteReviewNav():
     )
 
 
+## ------------------------ Examples for Role of data_analyst ------------------------
+def ViewTagsNav():
+    st.sidebar.page_link("pages/31_View_All_Tags.py", label="View all tags", icon="🏷️")
+
+
+def ManageUserInfoNav():
+    st.sidebar.page_link(
+        "pages/34_Manage_UserInfo.py", label="Manage the User Info Reports", icon="📋"
+    )
+
+def DemDeleterNav():
+    st.sidebar.page_link(
+        "pages/37_Delete_Dem.py", label="Delete a User Demographic Report", icon="👤"
+    )
+
+
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
     st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
@@ -113,6 +129,12 @@ def SideBarLinks(show_home=False):
             UserPageNav()
             UserSearchNav()
             UserMealPlanNav()
+
+        if st.session_state["role"] == "data_analyst":
+            ViewTagsNav()
+            ManageUserInfoNav()
+            DemDeleterNav()
+
 
 
     # Always show the About page at the bottom of the list of links
