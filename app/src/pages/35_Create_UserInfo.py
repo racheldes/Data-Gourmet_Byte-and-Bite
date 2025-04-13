@@ -41,9 +41,9 @@ with st.form("Insert the data for your report:"):
     if submitted:
         userInfo_lastLoggedOn = datetime.datetime.now().isoformat()
         user_data = {
-            "number_of_meal_plans": userInfo_mealPlanCount,  # Changed to match API's expected key
-            "userInfo_lastLoggedOn": userInfo_lastLoggedOn,
-            "userInfo_commentCount": userInfo_commentCount,
+            "meal_plans": userInfo_mealPlanCount,  
+            "lastLoggedOn": userInfo_lastLoggedOn,
+            "commentCount": userInfo_commentCount,
             "userID": userInfo_userID
 }
 
@@ -55,7 +55,7 @@ with st.form("Insert the data for your report:"):
         # Check if userID is present in the response (after the API call)
         if response.status_code == 200:
             try:
-                the_data = response.json()  # Parse the response data
+                the_data = response.json() 
                 if 'userID' not in the_data:
                     st.error("Error: userID is missing in the response data.")
                 else:
