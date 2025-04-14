@@ -39,6 +39,10 @@ if submitted:
 
     st.write(user_data) 
 
-    response = requests.post(f'http://api:4000/d/userInfo/{userID}', json = user_data)
+    response = requests.post(f'http://api:4000/d/userInfo/{userID}', json=user_data)
 
- 
+    if response.status_code == 200:
+        st.success("The user info report has been created!")
+        st.badge("Success", icon=":material/check:", color="green")
+    else:
+        st.error("The report has not been made! Sorry!")
