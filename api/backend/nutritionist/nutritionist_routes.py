@@ -37,7 +37,7 @@ def get_high_rated_ingredients():
     cursor = db.get_db().cursor()
     cursor.execute( '''SELECT r.ingredients
                         FROM Recipes r
-                        WHERE r.rating > 7;
+                        WHERE r.rating > 3;
     ''')
 
     theData = cursor.fetchall()
@@ -81,7 +81,7 @@ def add_new_review():
 
 
 ### update the rating of a recipe to better reflect its healthiness
-@nutritionist.route('/editRecipe/<int:recipeID>/<int:rating>', methods = ['PUT'])
+@nutritionist.route('/editRecipe/<int:recipeID>/<float:rating>', methods = ['PUT'])
 def update_recipe_rating(recipeID, rating): 
 
     query = '''UPDATE Recipes

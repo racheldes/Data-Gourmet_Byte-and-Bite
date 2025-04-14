@@ -1382,3 +1382,6 @@ INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) value
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-06-13 16:28:04', 'User issued a warning', 'active', 38);
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-11-30 05:35:53', 'User issued a warning', 'cancelled', 39);
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-11-24 16:47:37', 'Reviewed and dismissed', 'pending', 40);
+
+SELECT *
+FROM Reviews;
