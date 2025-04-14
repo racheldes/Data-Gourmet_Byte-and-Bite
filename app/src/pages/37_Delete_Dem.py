@@ -14,7 +14,8 @@ with st.form("Delete an User Demographic Report"):
 
     if submitted: 
       if demographicID:
-        response = requests.delete(f'http://api:4000/d/userDemographics/<demographicID>', json=data)
+        response = requests.delete(f'http://api:4000/d/userDemographics/{demographicID}'
+        )
 
         if response.status_code == 200:
           st.success("Reprt deleted.")
