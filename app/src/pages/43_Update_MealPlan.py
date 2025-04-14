@@ -24,13 +24,14 @@ with st.form("Change a Recipe Rating"):
     data = {}
     data['userID'] = userID
     data['allergens'] = allergens
+    st.write(data)
 
-    response = requests.put(f'http://api:4000/u/mealPlan/{userID}/{allergens}')
+    response = requests.put(f'http://api:4000/u/mealPlan', json = data)
 
 
     if response.status_code == 200:
       st.success("Allergies updated!")
-      st.badge("Success", icon = ":material/check", color="green")
+      st.badge("Success", icon=":material/check:", color="green")
     else:
       st.error("Allergies failed to update")
       st.markdown(":orange-badge[⚠️ Needs review]")
@@ -50,9 +51,9 @@ with st.form("Delete A Meal Plan"):
         response = requests.delete(f'http://api:4000/u/mealPlan/{mealPlanID}')
 
         if response.status_code == 200:
-          st.badge("Meal Plan deleted.", icon=":material/check", color="green")
+          st.badge("Meal Plan deleted.", icon=":material/check:", color="green")
         else:
-          st.error('Recipe failed to delete')
+          st.error('Meal Plan failed to delete')
           st.markdown(":orange-badge[⚠️ Needs review]")
         
       else:

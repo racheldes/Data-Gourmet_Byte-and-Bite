@@ -67,7 +67,7 @@ def add_recipe():
     # Construct the query
     query = f'''
         INSERT INTO Recipes (recipeID, username, rating, date, ingredients, directions, allergens, recipeUserID)
-        VALUES ({recipe_id}, {username}, {rating}, {date}, {ingredients}, {directions}, {allergens} '{review_user_id}')
+        VALUES ({recipe_id}, '{username}', {rating}, '{date}', '{ingredients}', '{directions}', '{allergens}', {review_user_id})
     '''
 
     current_app.logger.info(query)
