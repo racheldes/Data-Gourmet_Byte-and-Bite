@@ -18,16 +18,17 @@ with st.form("Change a Meal Plan Count"):
   submitted = st.form_submit_button("Submit")
 
     if userInfoID and mealPlanCount:
-        data = {
-            'userInfoID': userInfoID,
-            'mealPlanCount': mealPlanCount
-        }
+        data = {}
+        data['userInfoID'] = userInfoID
+        data['mealPlanCount'] = mealPlanCount
+        st.write(data)
 
-    response = requests.put(f'http://api:4000/d/userInfo/<userinfoID>/<mealPlanCount>', json=data)
+    response = requests.put(f'http://api:4000/d/userInfo/<userinfoID>/<mealPlanCount>', json = data)
 
 
     if response.status_code == 200:
       st.success("The count has been updated!")
+      st.badge("Success", icon=":material/check:", color="green")
     else:
       st.error("Meal plan count has failed to update! Sorry!")
 
