@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS MealPlan_goals (
   goals VARCHAR(75) NOT NULL,
   PRIMARY KEY (mealPlanId, goals),
   FOREIGN KEY (mealPlanId) REFERENCES MealPlan (mealPlanId)
-      ON DELETE RESTRICT
+      ON DELETE CASCADE
       ON UPDATE CASCADE
 );
 
@@ -99,6 +99,8 @@ CREATE TABLE IF NOT EXISTS MealPlanInfo (
   allergens VARCHAR(75),
   PRIMARY KEY (mealPlanInfoID),
   FOREIGN KEY (mealPlanInfoID) REFERENCES MealPlan(mealPlanId)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 -- create meal plan info goals table
@@ -108,7 +110,7 @@ CREATE TABLE IF NOT EXISTS MealPlanInfo_goals (
       goals VARCHAR(75) NOT NULL,
       PRIMARY KEY (mealPlanInfoId, goals),
       FOREIGN KEY (mealPlanInfoId) REFERENCES MealPlanInfo(mealPlanInfoID)
-                  ON DELETE RESTRICT
+                  ON DELETE CASCADE
                   ON UPDATE CASCADE
 );
 
