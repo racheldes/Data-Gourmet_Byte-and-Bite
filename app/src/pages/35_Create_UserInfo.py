@@ -39,17 +39,6 @@ if submitted:
 
     st.write(user_data) 
 
-    url = f'http://api:4000/d/userInfo/{userID}'
-    response = requests.post(url, json=user_data)
+    response = requests.post(f'http://api:4000/d/userInfo/{userID}', json = user_data)
 
-    if response.status_code == 200:
-        try:
-            the_data = response.json()
-            if 'userID' not in the_data:
-                st.error("Error: userID is missing in the response data.")
-            else:
-                st.success("User Info Report Created Successfully!")
-        except Exception as e:
-            st.error(f"Error parsing response: {str(e)}")
-    else:
-        st.error(f"Failed to submit user info. Status code: {response.status_code}")
+ 
