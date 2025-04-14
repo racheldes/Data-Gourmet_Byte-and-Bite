@@ -9,9 +9,9 @@ st.set_page_config(layout = 'wide')
 
 SideBarLinks()
 
-st.title('System Admin Home Page')
+st.title('Programmer Home Page')
 
-if st.button('Update ML Models', 
+if st.button('Task', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/21_ML_Model_Mgmt.py')

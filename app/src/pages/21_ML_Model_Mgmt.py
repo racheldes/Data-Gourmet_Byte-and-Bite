@@ -11,18 +11,25 @@ SideBarLinks()
 st.title('App Administration Page')
 
 st.write('\n\n')
-st.write('## Model 1 Maintenance')
+st.write('## Maintenance')
 
-st.button("Train Model 01", 
-            type = 'primary', 
-            use_container_width=True)
-
-st.button('Test Model 01', 
-            type = 'primary', 
-            use_container_width=True)
-
-if st.button('Model 1 - get predicted value for 10, 25', 
-             type = 'primary',
+if st.button("Report Management", 
+             type='primary', 
              use_container_width=True):
-  results = requests.get('http://api:4000/c/prediction/10/25').json()
-  st.dataframe(results)
+    st.switch_page('pages/22_ReportManagement.py') 
+
+if st.button('App Update',
+             type='primary',
+             use_container_width=True):
+    st.switch_page('pages/23_AppUpdate.py')
+
+if st.button('Content Moderation', 
+             type='primary', 
+             use_container_width=True):
+    st.switch_page('pages/24_ContentMod.py')
+    
+## if st.button('Report Management' , 
+##            type = 'primary',
+##             use_container_width=True):
+## results = requests.get('http://api:4000/c/prediction/10/25').json()
+## st.dataframe(results)

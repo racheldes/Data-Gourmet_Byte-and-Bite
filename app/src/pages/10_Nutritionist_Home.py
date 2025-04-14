@@ -17,6 +17,7 @@ st.write('### What would you like to do today?')
 if st.button('Manage Recipes', 
              type='primary',
              use_container_width=True):
+
   st.switch_page('pages/11_Manage_Recipes.py')
 
 if st.button('View the Ingredients of Highly Rated Recipes', 
