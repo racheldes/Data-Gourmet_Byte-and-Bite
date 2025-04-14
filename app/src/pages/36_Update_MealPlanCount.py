@@ -17,10 +17,11 @@ with st.form("Change a Meal Plan Count"):
 
   submitted = st.form_submit_button("Submit")
 
-  if userInfoID and mealPlanCount:
-    data = {}
-    data['userInfoID'] = userInfoID
-    data['mealPlanCount'] = mealPlanCount
+    if userInfoID and mealPlanCount:
+        data = {
+            'userInfoID': userInfoID,
+            'mealPlanCount': mealPlanCount
+        }
 
     response = requests.put(f'http://api:4000/d/userInfo/<userinfoID>/<mealPlanCount>')
 
