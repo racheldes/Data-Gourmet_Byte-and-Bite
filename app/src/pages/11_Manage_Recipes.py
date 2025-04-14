@@ -18,7 +18,7 @@ st.write("""
 with st.form("Create a New Recipe"):
 
     recipe_username = st.text_input("Enter you username")
-    recipe_rating = st.slider("Rate this review", 0, 10, 5, step=1)
+    recipe_rating = st.number_input("Rate this recipe 1 out of 5")
     recipe_ingredients = st.text_area("List the ingredients")
     recipe_directions = st.text_area("Write out the directions")
     recipe_allergens = st.text_input("Write the allergen if the recipe contains any")
@@ -65,7 +65,7 @@ st.write("""
 # put/update the recipe's rating 
 with st.form("Change a Recipe Rating"):
   recipeID = st.number_input("Enter the RecipeID to be updated", step=1)
-  recipe_rating = st.slider("Enter the new Rating", 0, 10, 5, step=1)
+  recipe_rating = st.number_input("Enter the new Rating")
 
   submitted = st.form_submit_button("Submit")
 

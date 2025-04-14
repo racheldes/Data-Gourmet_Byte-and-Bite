@@ -23,7 +23,7 @@ with st.form("Create a New Review"):
     review_reviewUserID = st.number_input("Input your userID", step=1)
     review_comment = st.text_area("Write your review comment")
     #review_rating = st.number_input("Give a rating number of this comment", step =1)
-    review_rating = st.slider("Rate this review", 0, 10, 5, step=1)
+    review_rating = st.slider("Rate this review", 0, 5, 3, step=1)
     st.write("Rating:", review_rating)
 
     submitted = st.form_submit_button("Submit")
