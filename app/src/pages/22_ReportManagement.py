@@ -16,7 +16,6 @@ if response.status_code == 200:
 
     st.header("Moderated Posts")
 
-    # Optional search by action or status
     search_bar = st.text_input("Search by action or status")
 
     if search_bar:

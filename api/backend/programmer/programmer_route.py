@@ -40,26 +40,23 @@ def get_all_app_updates():
     return response
 
 
-
 ### POST a new content report
 @programmer.route('/reportManagement', methods=['POST'])
 def create_content_report():
     the_data = request.json
 
-    reported_num = the_data['reportID']
-    report_date = the_data['dateReported']
+    report_date = the_data['dateReported']  # optional due to DEFAULT
     action_info = the_data['action']
     status = the_data['status']
     report_by = the_data['reportUserID']
-    
 
     query = '''
-        INSERT INTO ReportManagement (reportID, dateReported, action, status, reportUserID)
-        VALUES (%s, %s, %s, %s, %s)
+        INSERT INTO ReportManagement (dateReported, action, status, reportUserID)
+        VALUES (%s, %s, %s, %s)
     '''
 
     cursor = db.get_db().cursor()
-    cursor.execute(query, (report_id, report_date, action_info, status, reported_by))
+    cursor.execute(query, (report_date, action_info, status, report_by))
     db.get_db().commit()
 
     response = make_response("Report created successfully.")
