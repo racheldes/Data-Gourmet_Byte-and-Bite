@@ -655,7 +655,7 @@ INSERT INTO  tagsPosts (tagID, recipeID) values (24, 5);
 INSERT INTO  tagsPosts (tagID, recipeID) values (14, 24);
 
 
--- insert 30 sample meal plans
+-- insert 32 sample meal plans
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-17 18:21:31', 'Tree nuts', 22);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-10-31 18:21:31', null, 14);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-18 14:33:13', 'Peanuts', 24);
@@ -824,7 +824,7 @@ INSERT INTO  MealPlan_goals (mealPlanId, goals) values (18, 'balanced meals');
 INSERT INTO  MealPlan_goals (mealPlanId, goals) values (20, 'balanced meals');
 
 
--- insert 30 sample meal plan infos
+-- insert 32 sample meal plan infos
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 19);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Gluten', 18);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Tree nuts', 12);
@@ -859,7 +859,7 @@ INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 12);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 12);
 
 
--- insert 125 meal plan infos goals  -----
+-- insert 127 meal plan infos goals  -----
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (29, 'fat-free');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (27, 'vegan');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'anti-inflammatory');
@@ -989,7 +989,7 @@ INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (3, 'fat-free');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'low sugar');
 
 
--- insert 125 sample recipe_meal plan info
+-- insert 127 sample recipe_meal plan info
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (25, 6);
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (15, 8);
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 20);
@@ -1120,10 +1120,7 @@ INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 9);
 
 
 
-
-
-
--- insert 75 rows into userInfo
+-- insert 75 rows into userInfo (40)
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (1, 1, '2025-03-29 12:05:31', 94);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (2, 3, '2024-12-17 12:05:31', 17);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (3, 1, '2024-04-29 12:05:31', 94);
@@ -1164,9 +1161,47 @@ INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES 
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (38, 4, '2024-06-30 12:05:31', 91);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (39, 5, '2024-09-03 12:05:31', 30);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (40, 0, '2024-12-06 12:05:31', 21);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (13, 0, '2025-01-05 14:55:31', 32);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (19, 9, '2025-01-28 18:06:31', 39);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (28, 7, '2024-12-20 00:37:31', 17);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (15, 0, '2025-03-01 18:37:31', 22);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 9, '2025-01-02 07:51:31', 3);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (21, 2, '2025-01-09 18:47:31', 41);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (9, 7, '2025-03-18 11:35:31', 17);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (38, 2, '2025-02-28 03:47:31', 16);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 1, '2025-02-16 06:12:31', 4);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (6, 2, '2025-01-22 12:08:31', 14);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (20, 5, '2025-03-13 05:10:31', 33);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (8, 1, '2024-12-18 01:02:31', 0);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (33, 1, '2024-12-08 02:03:31', 16);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (21, 2, '2025-02-22 21:13:31', 49);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (36, 1, '2025-01-15 07:26:31', 9);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (8, 5, '2025-02-23 00:55:31', 1);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (13, 0, '2024-12-23 23:20:31', 2);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (8, 6, '2025-02-15 06:29:31', 27);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (35, 1, '2025-02-09 14:23:31', 25);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (12, 10, '2025-02-12 03:13:31', 37);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (29, 0, '2025-01-25 20:50:31', 34);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 3, '2025-03-11 15:02:31', 35);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (6, 2, '2024-12-17 15:43:31', 45);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (8, 3, '2025-03-12 21:13:31', 26);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (9, 7, '2025-02-11 04:14:31', 47);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (26, 7, '2025-01-20 03:26:31', 38);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (33, 7, '2025-04-06 11:00:31', 49);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (14, 5, '2025-01-09 20:55:31', 0);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 6, '2024-12-30 23:01:31', 29);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (30, 4, '2024-12-26 12:48:31', 4);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (29, 2, '2025-01-11 12:47:31', 5);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (19, 5, '2024-12-24 12:45:31', 7);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 2, '2025-02-10 09:58:31', 34);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (12, 0, '2025-03-05 08:06:31', 44);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (8, 1, '2025-02-04 05:45:31', 26);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (34, 7, '2025-02-28 12:45:31', 35);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (12, 7, '2024-12-27 08:14:31', 30);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (5, 6, '2024-12-12 20:47:31', 35);
 
 
--- insert 60 statements into UserDemographics
+-- insert 60 statements into UserDemographics (54)
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (39.0, 'Male', 0.61, 0.43, 17);
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (26.4, 'Male', 0.74, 0.58, 13);
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (48.2, 'Female', 0.29, 0.73, 6);
@@ -1221,6 +1256,16 @@ INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequenc
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (29.0, 'Female', 0.52, 0.50, 29);
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (35.6, 'Male', 0.71, 0.75, 30);
 INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (31.2, 'Female', 0.25, 0.83, 22);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (41.3, 'Female', 0.41, 0.47, 29);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (34.7, 'Non-binary', 0.93, 0.07, 15);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (24.6, 'Female', 0.65, 0.96, 35);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (52.1, 'Male', 0.71, 0.14, 15);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (36.9, 'Male', 0.92, 0.43, 14);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (54.7, 'Female', 0.56, 0.93, 9);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (49.0, 'Female', 0.34, 0.63, 26);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (26.3, 'Non-binary', 0.58, 0.48, 37);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (64.0, 'Male', 0.18, 0.39, 39);
+INSERT INTO UserDemographics (avgAge, avgGender, allergenFrequency, goalFrequency, demUserID) VALUES (58.9, 'Male', 0.96, 0.14, 22);
 
 
 -- insert 40 investorReport entries without explicitly inserting reportId
