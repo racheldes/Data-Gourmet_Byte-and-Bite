@@ -74,7 +74,7 @@ if st.button('Act as Susanne, a Nutritionist',
     st.session_state['first_name'] = 'Susanne'
     st.switch_page('pages/10_Nutritionist_Home.py')
 
-if st.button('Act as System Administrator', 
+if st.button('Act as Bobbie, a Programmer', 
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
