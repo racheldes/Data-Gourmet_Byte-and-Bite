@@ -686,6 +686,8 @@ INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-09-28 14:30:11'
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-21 18:17:16', null, 19);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-04-16 06:15:59', null, 4);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-04-04 10:20:56', null, 15);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:20:56', null, 18);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:30:56', null, 20);
 
 
 -- insert 130 statements into MealPlan_goals
@@ -818,7 +820,8 @@ INSERT INTO  MealPlan_goals (mealPlanId, goals) values (25, 'portion control');
 INSERT INTO  MealPlan_goals (mealPlanId, goals) values (26, 'portion control');
 INSERT INTO  MealPlan_goals (mealPlanId, goals) values (24, 'eat more vegetables');
 INSERT INTO  MealPlan_goals (mealPlanId, goals) values (7, 'eat more vegetables');
-INSERT INTO  MealPlan_goals (mealPlanId, goals) values (12, 'balanced meals');
+INSERT INTO  MealPlan_goals (mealPlanId, goals) values (18, 'balanced meals');
+INSERT INTO  MealPlan_goals (mealPlanId, goals) values (20, 'balanced meals');
 
 
 -- insert 30 sample meal plan infos
@@ -852,6 +855,8 @@ INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 14);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 19);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 3);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Fish', 11);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 12);
+INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 12);
 
 
 -- insert 125 meal plan infos goals  -----
@@ -980,6 +985,8 @@ INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (18, 'balanced');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (5, 'low sodium');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (8, 'fiber rich');
 INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (9, 'fat-free');
+INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (3, 'fat-free');
+INSERT INTO  MealPlanInfo_goals (mealPlanInfoId, goals) values (15, 'low sugar');
 
 
 -- insert 125 sample recipe_meal plan info
@@ -1108,6 +1115,8 @@ INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (5, 20);
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (8, 17);
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (11, 24);
 INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (17, 9);
+INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (18, 2);
+INSERT INTO  Recipe_MealPlanInfo (mealPlanInfoId, recipeID) values (20, 9);
 
 
 
@@ -1384,6 +1393,3 @@ INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) value
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-06-13 16:28:04', 'User issued a warning', 'active', 38);
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-11-30 05:35:53', 'User issued a warning', 'cancelled', 39);
 INSERT INTO  ReportManagement (dateReported, action, status, reportUserID) values ('2024-11-24 16:47:37', 'Reviewed and dismissed', 'pending', 40);
-
-SELECT *
-FROM Reviews;
