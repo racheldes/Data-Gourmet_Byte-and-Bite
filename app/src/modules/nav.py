@@ -47,13 +47,35 @@ def DemDeleterNav():
     )
 
 
-#### ------------------------ System Admin Role ------------------------
-def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
+#### ------------------------ System programmer ------------------------
+def ReportManagementNav():
+    if st.sidebar.button("🐞 View Bug Reports", use_container_width=True):
+        st.switch_page("pages/22_ReportManagement.py")
 
+
+def ContentModerationNav():
+    if st.sidebar.button("🛡️ Moderate Content", use_container_width=True):
+        st.switch_page("pages/24_ContentMod.py")
+
+
+def AppUpdateNav():
+    if st.sidebar.button("🚀 View App Updates", use_container_width=True):
+        st.switch_page("pages/23_AppUpdate.py")
+
+
+def ReinstatePostNav():
+    if st.sidebar.button("🔁 Reinstate Post", use_container_width=True):
+        st.switch_page("pages/25_Reinstate.py")
+
+
+def DeletePostNav():
+    if st.sidebar.button("🗑️ Delete Post", use_container_width=True):
+        st.switch_page("pages/26_DeletePost.py")
+
+
+def ExploreRecipesNav():
+    if st.sidebar.button("🍽️ Check Post", use_container_width=True):
+        st.switch_page("pages/42_Search_Recipe.py")
 ## ------------------------ Pages for a User ------------------------
 
 def UserPageNav():
@@ -100,7 +122,13 @@ def SideBarLinks(show_home=False):
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
-            AdminPageNav()
+            ReportManagementNav()
+            ContentModerationNav()
+            AppUpdateNav()
+            ReinstatePostNav()
+            DeletePostNav()
+            ExploreRecipesNav()
+
 
         if st.session_state["role"] == "user":
             UserPageNav()

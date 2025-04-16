@@ -1,24 +1,30 @@
+
 import logging
 logger = logging.getLogger(__name__)
+import pandas as pd
 import streamlit as st
-from modules.nav import SideBarLinks
 import requests
-
-st.set_page_config(layout='wide')
-
+from streamlit_extras.app_logo import add_logo
+from modules.nav import SideBarLinks
 SideBarLinks()
 
-# Page title
-st.title("App Administration Page")
+response = requests.get("http://api:4000/p/contentModeration")
 
-# Button for "Make a Report"
-if st.button("Make a Report", 
-             type='primary', 
-             use_container_width=True):
-    st.switch_page('pages/22_ReportManagement.py') 
+if response.status_code == 200:
+    data = response.json()
+    mod_df = pd.DataFrame(data)
 
-# Button for "View Reports"
-if st.button("View Reports", 
-             type='primary', 
-             use_container_width=True):
-    st.switch_page('pages/22_ReportManagement.py')
+    st.header("Moderated Posts")
+
+    # Optional search by action or status
+    search_bar = st.text_input("Search by action or status")
+
+    if search_bar:
+        mod_df = mod_df[
+            mod_df["action"].str.contains(search_bar, case=False, na=False)
+        ]
+
+    st.dataframe(mod_df)
+
+else:
+    st.error("Failed to load moderation data from the server.")

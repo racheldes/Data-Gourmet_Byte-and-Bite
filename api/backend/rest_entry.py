@@ -4,6 +4,7 @@ from backend.db_connection import db
 from backend.nutritionist.nutritionist_routes import nutritionist
 from backend.users.user_routes import users
 from backend.data_analyst.data_analyst_routes import data_analyst
+from backend.programmer.programmer_route import programmer
 
 import os
 from dotenv import load_dotenv
@@ -43,6 +44,8 @@ def create_app():
     app.register_blueprint(nutritionist, url_prefix='/n')
     app.register_blueprint(users, url_prefix='/u')
     app.register_blueprint(data_analyst, url_prefix='/d')
-    # Don't forget to return the app object
-    return app
+    app.register_blueprint(programmer, url_prefix='/p')
 
+    # Don't forget to return the app object
+
+    return app

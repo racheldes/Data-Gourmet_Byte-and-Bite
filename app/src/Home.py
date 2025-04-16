@@ -70,7 +70,7 @@ if st.button("Act as Mark, a Data Analyst",
     st.switch_page('pages/33_Data_Analyst_Home.py')
 
 
-if st.button('Act as System Administrator', 
+if st.button('Act as System Bobbie, Programer', 
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
