@@ -5,6 +5,8 @@ import streamlit as st
 from modules.nav import SideBarLinks
 import requests
 
+SideBarLinks()
+
 st.write("""
 ## Delete a User Demographic Report here!
 """)
