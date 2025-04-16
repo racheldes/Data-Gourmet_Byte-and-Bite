@@ -655,7 +655,7 @@ INSERT INTO  tagsPosts (tagID, recipeID) values (24, 5);
 INSERT INTO  tagsPosts (tagID, recipeID) values (14, 24);
 
 
--- insert 32 sample meal plans
+-- insert 3 sample meal plans
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-17 18:21:31', 'Tree nuts', 22);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-10-31 18:21:31', null, 14);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-18 14:33:13', 'Peanuts', 24);
@@ -688,6 +688,10 @@ INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-04-16 06:15:59'
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-04-04 10:20:56', null, 15);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:20:56', null, 18);
 INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:30:56', null, 20);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:30:56', 'Dairy', 23);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-04-12 04:17:26', 'Wheat', 21);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2025-02-04 10:30:56', 'Dairy', 18);
+INSERT INTO  MealPlan (addDate, allergens, userID) values ('2024-04-12 04:17:26', 'Wheat', 19);
 
 
 -- insert 130 statements into MealPlan_goals
@@ -857,6 +861,7 @@ INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 3);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Fish', 11);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES (NULL, 12);
 INSERT INTO MealPlanInfo (allergens, recipeID) VALUES ('Peanuts', 12);
+
 
 
 -- insert 127 meal plan infos goals  -----
@@ -1199,6 +1204,9 @@ INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES 
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (34, 7, '2025-02-28 12:45:31', 35);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (12, 7, '2024-12-27 08:14:31', 30);
 INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (5, 6, '2024-12-12 20:47:31', 35);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (4, 7, '2024-12-10 23:21:35', 31);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (22, 6, '2024-02-25 06:58:44', 87);
+INSERT INTO UserInfo (userID, mealPlanCount, lastLoggedOn, commentCount) VALUES (33, 5, '2024-10-12 06:45:05', 22);
 
 
 -- insert 60 statements into UserDemographics (54)
