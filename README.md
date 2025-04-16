@@ -1,6 +1,8 @@
 # Spring 2025 CS 3200 Project Template Repository
 
-This repo is our semester project. It includes the 3 containers: API, APP, and database containers. This is for an application of a meal plan and recipe sharing app. Four user personas organized our blueprints and routes: User, nutritionist, data analyst, and app manager. Group project members are 
+This repo is our semester project. It includes the 3 containers: API, APP, and database containers. This is for an application of a meal plan and recipe sharing app. Four user personas organized our blueprints and routes: User, nutritionist, data analyst, and app manager.
+## Project Demo Video
+https://www.youtube.com/watch?v=qvIV4IEBIDs 
 
 ## Prerequisites
 
