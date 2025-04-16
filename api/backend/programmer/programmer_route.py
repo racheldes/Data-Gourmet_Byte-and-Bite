@@ -8,7 +8,7 @@ from flask import request
 from flask import jsonify
 from flask import make_response
 from backend.db_connection import db
-# need to remove unncessary imports
+
 # Create the programmer blueprint
 programmer = Blueprint('programmer', __name__)
 
