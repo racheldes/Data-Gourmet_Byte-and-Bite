@@ -21,7 +21,7 @@ with st.form("Post a Recipe!"):
 
     ## maybe should add a title for the recipe lowkey
 
-    #recipe_id = st.text_input("Enter your recipeID")
+    recipe_ID = st.text_input("Enter your recipeID")
     recipe_username = st.text_input("Enter your username")
     recipe_rating = st.slider("Rate this recipe", 0, 5, 5, step=1)
     recipe_ingredients = st.text_area("List the ingredients")
@@ -52,13 +52,14 @@ with st.form("Post a Recipe!"):
     if submitted: 
         recipe_date = datetime.datetime.now().isoformat()
         data = {}
-        data['recipe_username'] = recipe_username
-        data['recipe_rating'] = recipe_rating
-        data['recipe_date'] = recipe_date
-        data['recipe_ingredients'] = recipe_ingredients
-        data['recipe_directions'] = recipe_directions
-        data['recipe_allergens'] = recipe_allergens
-        data['recipe_recipeUserID'] = recipe_recipeUserID
+        data['recipeID'] = recipe_ID
+        data['username'] = recipe_username
+        data['rating'] = recipe_rating
+        data['date'] = recipe_date
+        data['ingredients'] = recipe_ingredients
+        data['directions'] = recipe_directions
+        data['allergens'] = recipe_allergens
+        data['recipeUserID'] = recipe_recipeUserID
         st.write(data)
 
         requests.post('http://api:4000/u/post-recipe', json=data)
